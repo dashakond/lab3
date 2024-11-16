@@ -1,0 +1,13 @@
+Package: main-dbgsym
+Package-Type: ddeb
+Source: main
+Version: 1.0-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Daryna  <dasha.kondratez@gmail.com>
+Installed-Size: 28
+Depends: main (= 1.0-1)
+Section: debug
+Priority: optional
+Description: debug symbols for main
+Build-Ids: c21cde0f40848da9cd089fae4fbbdac9d791cde7

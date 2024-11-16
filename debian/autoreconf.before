@@ -1,12 +1,8 @@
-symlink  ./missing
-symlink  ./install-sh
-symlink  ./INSTALL
-symlink  ./depcomp
 symlink  ./COPYING
 d41d8cd98f00b204e9800998ecf8427e  ./NEWS
 d41d8cd98f00b204e9800998ecf8427e  ./ChangeLog
-59ecfb61b204842ddb8e377fa5c80425  ./configure.ac
-9c01b6395f5f6e5104890b855fa4aadf  ./configure
+42cb407b88fbe206d0956e8af2eec1ac  ./configure.ac
+c66794dd80a25647c9ab26868a6a3612  ./configure
 a6e90a4ae058a35202a75e2eaaf88d83  ./aclocal.m4
 f9e4006709ef9f849858e1a81d031259  ./FuncA.cpp
 38ba758f089b95e5e9552136a8ea717d  ./.github/workflows/ci_deb.yml
@@ -14,7 +10,7 @@ f9e4006709ef9f849858e1a81d031259  ./FuncA.cpp
 78754f65a931318c486c4ca8513f3ad1  ./main-1.0.tar.gz
 abdfea418ae5daba670b3977af847aaa  ./FuncA.h
 d41d8cd98f00b204e9800998ecf8427e  ./AUTHORS
-319df3702b070348cf5df6cabaf8df06  ./Makefile.am
-62269af156b288978a9a2f4927323aff  ./Makefile.in
+b98f8bfec49e1e16289ecceea198643c  ./Makefile.am
+6893c3e9ff698002410a19230709234f  ./Makefile.in
 d41d8cd98f00b204e9800998ecf8427e  ./README
 597c7aadbd15a8aa582f3ca36536b2c5  ./main.cpp
