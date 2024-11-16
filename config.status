@@ -386,7 +386,7 @@ on `(hostname || uname -n) 2>/dev/null | sed 1q`
 "
 
 # Files that config.status was made for.
-config_files=" Makefile"
+config_files=" Makefile debian/control debian/rules debian/changelog"
 config_commands=" depfiles"
 
 ac_cs_usage="\
@@ -524,6 +524,9 @@ do
   case $ac_config_target in
     "depfiles") CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
     "Makefile") CONFIG_FILES="$CONFIG_FILES Makefile" ;;
+    "debian/control") CONFIG_FILES="$CONFIG_FILES debian/control" ;;
+    "debian/rules") CONFIG_FILES="$CONFIG_FILES debian/rules" ;;
+    "debian/changelog") CONFIG_FILES="$CONFIG_FILES debian/changelog" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
   esac

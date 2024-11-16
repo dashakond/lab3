@@ -1,0 +1,12 @@
+Source: main
+Section: utils
+Priority: optional
+Maintainer: Daryna  <dasha.kondratez@gmail.com>
+Build-Depends: debhelper (>= 11)
+Standards-Version: 4.1.4
+
+Package: main
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: My C++ Program
+
