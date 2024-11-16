@@ -3596,9 +3596,7 @@ else
 fi
 
 
-ac_config_files="$ac_config_files Makefile"
-
-ac_config_files="$ac_config_files debian/control debian/rules debian/changelog"
+ac_config_files="$ac_config_files Makefile debian/control debian/rules debian/changelog"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
