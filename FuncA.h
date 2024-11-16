@@ -3,7 +3,7 @@
 
 class FuncA {
 public:
-    double calculate(int n); // Функция, вычисляющая значение суммы
+    double calculate(int n, double x); // Добавлен аргумент x
 };
 
 #endif // FUNCA_H
