@@ -1,4 +1,5 @@
 bin_PROGRAMS = main
-main_SOURCES = main.cpp FuncA.cpp
+main_SOURCES = FuncA.cpp FuncA.h main.cpp
 
-AM_DISTCHECK_CONFIGURE_FLAGS = --prefix=/usr
+check_PROGRAMS = test_func
+test_func_SOURCES = test_func.cpp FuncA.cpp FuncA.h

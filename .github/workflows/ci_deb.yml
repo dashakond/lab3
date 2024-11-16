@@ -1,25 +1,20 @@
-name: Build Debian Package
+name: Build and Test
 
 on:
   push:
     branches:
-      - branchAutoPackage
-  pull_request:
-    branches:
-      - master
+      - branchAutoTest
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: sudo apt-get install -y debhelper
-
-      - name: Build Debian package
-        run: |
-          dpkg-buildpackage -us -uc
-
+    - name: Run Unit Tests
+      run: |
+        autoreconf --install
+        ./configure
+        make check
