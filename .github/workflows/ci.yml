@@ -1,4 +1,4 @@
-name: C++ CI
+name: Automake CI
 
 on: [push, pull_request]
 
@@ -8,8 +8,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install Dependencies
-      run: sudo apt-get install -y build-essential
+      run: sudo apt-get install -y build-essential automake
     - name: Build
       run: |
+        ./configure
         make
+        make dist
 
