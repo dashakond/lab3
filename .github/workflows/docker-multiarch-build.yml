@@ -8,27 +8,32 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [amd64, arm64]
+
     steps:
+      # 1. Завантаження вихідного коду
       - name: Checkout code
         uses: actions/checkout@v2
 
+      # 2. Налаштування QEMU для підтримки багатьох архітектур
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
         with:
           platforms: all
 
+      # 3. Налаштування Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+        with:
+          install: true
 
+      # 4. Логін до Docker Hub
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      # 5. Створення та завантаження багатоплатформного образу
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
         with:
@@ -37,6 +42,7 @@ jobs:
           push: true
           tags: dashakond/my-http-server:latest
 
+      # 6. Створення та завантаження манифесту
       - name: Create and push Docker manifest
         run: |
           docker manifest create dashakond/my-http-server:latest \
