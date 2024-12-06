@@ -1,10 +1,5 @@
-# Використовуємо офіційний образ Ubuntu як базовий
-FROM ubuntu:20.04
+FROM ubuntu:latest as builder
 
-# Встановлюємо змінні середовища, щоб уникнути інтерактивних запитів під час інсталяції пакетів
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Оновлюємо список пакетів та встановлюємо залежності
 RUN apt-get update && apt-get install -y \
     build-essential \
     gcc \
@@ -13,17 +8,20 @@ RUN apt-get update && apt-get install -y \
     netcat \
     && rm -rf /var/lib/apt/lists/*
 
-# Створюємо та встановлюємо робочу директорію
-WORKDIR /usr/src/app
+RUN wget https://raw.githubusercontent.com/dashakond/lab3/branchHTTPserver/server.cpp
+RUN wget https://raw.githubusercontent.com/dashakond/lab3/branchHTTPserver/Makefile
 
-# Копіюємо ваш вихідний код сервера в контейнер
-COPY server.c .
+# Сборка программы
+RUN make server
 
-# Компілюємо C програму (сервер)
-RUN gcc -o server server.c -lm
+# Второй этап: Минимальный образ
+FROM alpine:latest
 
-# Відкриваємо порт, на якому буде працювати ваш сервер
-EXPOSE 8081
+# Установка необходимых зависимостей
+RUN apk add --no-cache libstdc++
 
-# Команда для запуску вашого сервера
-CMD ["./server"]
+# Копирование исполняемого файла из первого этапа
+COPY --from=builder /app/server /app/server
+
+# Определение команды запуска
+CMD ["/app/server"]
