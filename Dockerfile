@@ -1,12 +1,6 @@
 FROM ubuntu:latest as builder
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    gcc \
-    make \
-    curl \
-    netcat \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y g++ wget make
 
 RUN wget https://raw.githubusercontent.com/dashakond/lab3/branchHTTPserver/server.cpp
 RUN wget https://raw.githubusercontent.com/dashakond/lab3/branchHTTPserver/Makefile
