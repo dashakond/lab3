@@ -9,6 +9,9 @@ WORKDIR /app
 RUN wget https://raw.githubusercontent.com/dashakond/lab3/branchHTTPserver/server.cpp
 RUN wget https://raw.githubusercontent.com/dashakond/lab3/branchHTTPserver/Makefile
 
+# Скачивание библиотеки httplib.h
+RUN wget https://raw.githubusercontent.com/yhirose/cpp-httplib/master/httplib.h
+
 # Сборка программы
 RUN make server
 
