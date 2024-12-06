@@ -43,4 +43,3 @@ jobs:
             --amend dashakond/my-http-server:latest-amd64 \
             --amend dashakond/my-http-server:latest-arm64
           docker manifest push dashakond/my-http-server:latest
-
